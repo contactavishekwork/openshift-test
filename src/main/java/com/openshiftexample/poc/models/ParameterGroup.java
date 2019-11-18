@@ -12,7 +12,7 @@ import java.util.Date;
 @NamedStoredProcedureQueries({
         @NamedStoredProcedureQuery(
                 name = "GetParameterGroupsByRole",
-                procedureName = "PRC_GET_PARAM_GROUP_BY_ROLE",
+                procedureName = "pkg_get_set_parmas_ms.PRC_GET_PARAM_GROUP_BY_ROLE",
                 resultClasses = {ParameterGroup.class},
                 parameters = {
                         @StoredProcedureParameter(name = "recordUserNumber", type = String.class, mode = ParameterMode.IN),

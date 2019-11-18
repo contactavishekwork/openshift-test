@@ -15,6 +15,7 @@ import javax.persistence.StoredProcedureParameter;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.List;
 
 /**
  * This class contains the Parameters.
@@ -35,6 +36,7 @@ import java.util.Date;
                         @StoredProcedureParameter(name = "parameterGroupNumber", type = Integer.class, mode = ParameterMode.IN),
                         @StoredProcedureParameter(name = "userApplicationRelationName", type = String.class, mode = ParameterMode.IN),
                         @StoredProcedureParameter(name = "recordUserNumber", type = String.class, mode = ParameterMode.IN),
+                        @StoredProcedureParameter(name = "groupParams", type = Parameter.class, mode = ParameterMode.OUT)
                 }),
         @NamedStoredProcedureQuery(
                 name = "GetParametersByName",

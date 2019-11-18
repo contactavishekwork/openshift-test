@@ -15,7 +15,7 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
@@ -87,6 +87,7 @@
             <artifactId>commons-collections4</artifactId>
             <version>4.1</version>
         </dependency>
+
     </dependencies>
 
     <build>
