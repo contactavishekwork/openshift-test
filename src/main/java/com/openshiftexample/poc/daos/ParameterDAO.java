@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface ParameterDAO extends CrudRepository<Parameter, String> {
 
-    @Procedure(name = "GetAllParametersBySystemNumber")
-    List getAllByParameterSystemNumber(@NotNull int parameterSystemNumber);
+    @Procedure(name = "GetAllParametersByUserRole")
+    List getAllParametersByUserRole(@NotNull int parameterGroupNumber, @NotNull String userApplicationRelationName, @NotNull String recordUserNumber);
 
     List<Parameter> getAllByParameterName(String parameterName);
 

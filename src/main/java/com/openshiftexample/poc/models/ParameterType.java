@@ -30,10 +30,6 @@ public class ParameterType {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int parameterTypeNumber;
 
-    @NotNull
-    @Column(name = "prm_typ_cd")
-    private String parameterTypeCode;
-
     @Column(name = "prm_typ_cd_dsc_te")
     private String parameterTypeCodeDescription;
 

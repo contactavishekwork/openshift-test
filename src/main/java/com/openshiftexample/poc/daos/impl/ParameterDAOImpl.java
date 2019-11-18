@@ -24,16 +24,19 @@ public abstract class ParameterDAOImpl implements ParameterDAO {
     private EntityManager entityManager;
 
     @Override
-    public List getAllByParameterSystemNumber(@NotNull int parameterSystemNumber) {
+    public List getAllParametersByUserRole(@NotNull int parameterGroupNumber, @NotNull String userApplicationRelationName, @NotNull String recordUserNumber) {
         StoredProcedureQuery storedProcedureQuery;
         List resultList;
 
         try{
             storedProcedureQuery = entityManager.createStoredProcedureQuery("GET_ALL_PARAMETERS")
-                    .registerStoredProcedureParameter(0, Integer.class, ParameterMode.OUT);
+                    .registerStoredProcedureParameter(0, Integer.class, ParameterMode.OUT)
+                    .registerStoredProcedureParameter(1, String.class, ParameterMode.OUT)
+                    .registerStoredProcedureParameter(2, String.class, ParameterMode.OUT);
 
-            storedProcedureQuery.setParameter(0, parameterSystemNumber);
-
+            storedProcedureQuery.setParameter(0, parameterGroupNumber);
+            storedProcedureQuery.setParameter(1, userApplicationRelationName);
+            storedProcedureQuery.setParameter(2, recordUserNumber);
             resultList = storedProcedureQuery.getResultList();
 
             if(CollectionUtils.isEmpty(resultList)) {

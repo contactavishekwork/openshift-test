@@ -17,11 +17,11 @@ public class ParameterController {
         this.parameterService = parameterService;
     }
 
-    @RequestMapping(path = "/paramNumber/{paramNumber}", method = RequestMethod.GET)
+    @RequestMapping(path = "/paramNumber/{groupNumber}/{userRole}/{roleNumber}", method = RequestMethod.GET)
     @ResponseBody
-    public ParameterResponse getParametersByParameterNumber(@PathVariable int paramNumber) throws Exception {
+    public ParameterResponse getAllParametersByUserRole(@PathVariable int groupNumber, @PathVariable String userRole, @PathVariable String roleNumber) throws Exception {
 
-        return parameterService.getAllParametersBySystemNumber(paramNumber);
+        return parameterService.getAllParametersByUserRole(groupNumber, userRole, roleNumber);
     }
 
     @RequestMapping(path = "/paramName/{paramName}", method = RequestMethod.GET)

@@ -1,6 +1,7 @@
 package com.openshiftexample.poc.models;
 
 import lombok.Data;
+import org.springframework.web.servlet.tags.Param;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,11 +28,13 @@ import java.util.Date;
 @Table(name = "TPRM")
 @NamedStoredProcedureQueries({
         @NamedStoredProcedureQuery(
-                name = "GetAllParametersBySystemNumber",
-                procedureName = "GET_ALL_PARAMETERS",
+                name = "GetAllParametersByUserRole",
+                procedureName = "pkg_get_set_parmas_ms.prc_get_params_by_role",
                 resultClasses = {Parameter.class},
                 parameters = {
-                        @StoredProcedureParameter(name = "parameterSystemNumber", type = Integer.class, mode = ParameterMode.OUT)
+                        @StoredProcedureParameter(name = "parameterGroupNumber", type = Integer.class, mode = ParameterMode.OUT),
+                        @StoredProcedureParameter(name = "userApplicationRelationName", type = String.class, mode = ParameterMode.OUT),
+                        @StoredProcedureParameter(name = "recordUserNumber", type = String.class, mode = ParameterMode.OUT)
                 }),
         @NamedStoredProcedureQuery(
                 name = "GetParametersByName",

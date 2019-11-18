@@ -25,23 +25,23 @@ public class ParameterServiceImpl implements ParameterService {
     }
 
     @Override
-    public ParameterResponse getAllParametersBySystemNumber(@NotNull int parameterSystemNumber) throws Exception{
+    public ParameterResponse getAllParametersByUserRole(@NotNull int parameterGroupNumber, @NotNull String userApplicationRelationName, @NotNull String recordUserNumber) throws Exception{
 
-        if(parameterSystemNumber < 0) {
+        if(parameterGroupNumber < 0) {
             log.error("Parameter System Number cannot be less than 0");
             throw new Exception("Parameter System Number cannot be less than 0");
         }
 
-        if(parameterSystemNumber == 0) {
+        if(parameterGroupNumber == 0) {
             log.error("Parameter system number cannot 0");
             throw new Exception("Parameter System cannot be 0");
         }
 
         @SuppressWarnings("unchecked")
-        ArrayList<Parameter> parameterList = (ArrayList<Parameter>) parameterDAO.getAllByParameterSystemNumber(parameterSystemNumber);
+        ArrayList<Parameter> parameterList = (ArrayList<Parameter>) parameterDAO.getAllParametersByUserRole(parameterGroupNumber, userApplicationRelationName, recordUserNumber);
 
         if(CollectionUtils.isNotEmpty(parameterList)) {
-            log.error("No Parameters found with Parameter System Number: " + parameterSystemNumber);
+            log.error("No Parameters found with Parameter System Number: " + parameterGroupNumber);
             return null;
         }
 

@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 
 public interface ParameterService {
 
-    ParameterResponse getAllParametersBySystemNumber(@NotNull int parameterSystemNumber) throws Exception;
+    ParameterResponse getAllParametersByUserRole(@NotNull int parameterGroupNumber, @NotNull String userApplicationRelationName, @NotNull String recordUserNumber) throws Exception;
 
     ParameterResponse getAllParametersByParameterName(@NotNull String parameterName) throws Exception;
 }
