@@ -2,18 +2,44 @@ package com.openshiftexample.poc.models;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
 @Data
 @Table(name = "TPRMGRP")
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "GetParameterGroupsByRole",
+                procedureName = "PRC_GET_PARAM_GROUP_BY_ROLE",
+                resultClasses = {ParameterGroup.class},
+                parameters = {
+                        @StoredProcedureParameter(name = "recordUserNumber", type = String.class, mode = ParameterMode.IN),
+                        @StoredProcedureParameter(name = "userApplicationRelationName", type = String.class, mode = ParameterMode.IN),
+                        @StoredProcedureParameter(name = "parameterGroupName", type = String.class, mode = ParameterMode.OUT),
+                }
+
+        ),
+
+         @NamedStoredProcedureQuery(
+                 name = "CreateParameterGroup",
+                 procedureName = "CREATE_PARAM_GROUP",
+                 resultClasses = {Parameter.class},
+                 parameters = {
+                         @StoredProcedureParameter(name = "parameterGroupNumber", type = Integer.class, mode = ParameterMode.IN),
+                         @StoredProcedureParameter(name = "parameterGroupCode", type = Integer.class, mode = ParameterMode.IN),
+                         @StoredProcedureParameter(name = "parameterGroupName", type = String.class, mode = ParameterMode.IN),
+                         @StoredProcedureParameter(name = "recordDeleteIndicator", type = Integer.class, mode = ParameterMode.IN),
+                         @StoredProcedureParameter(name = "createdDate", type = Date.class, mode = ParameterMode.IN),
+                         @StoredProcedureParameter(name = "createdBy", type = String.class, mode = ParameterMode.IN),
+                         @StoredProcedureParameter(name = "modifiedDate", type = Date.class, mode = ParameterMode.IN),
+                         @StoredProcedureParameter(name = "modifiedBy", type = String.class, mode = ParameterMode.IN)
+                 }
+         )
+
+
+})
 public class ParameterGroup {
 
     @Id
