@@ -30,4 +30,5 @@ public class ParameterController {
 
         return parameterService.getAllParametersByParameterName(paramName);
     }
+
 }

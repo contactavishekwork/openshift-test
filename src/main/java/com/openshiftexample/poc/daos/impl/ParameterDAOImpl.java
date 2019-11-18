@@ -6,10 +6,7 @@ import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.ParameterMode;
-import javax.persistence.PersistenceContext;
-import javax.persistence.StoredProcedureQuery;
+import javax.persistence.*;
 import javax.transaction.Transactional;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -29,14 +26,17 @@ public abstract class ParameterDAOImpl implements ParameterDAO {
         List resultList;
 
         try{
-            storedProcedureQuery = entityManager.createStoredProcedureQuery("GET_ALL_PARAMETERS")
-                    .registerStoredProcedureParameter(0, Integer.class, ParameterMode.OUT)
-                    .registerStoredProcedureParameter(1, String.class, ParameterMode.OUT)
-                    .registerStoredProcedureParameter(2, String.class, ParameterMode.OUT);
+            storedProcedureQuery = entityManager.createStoredProcedureQuery("pkg_get_set_parmas_ms.prc_get_params_by_role")
+                    .registerStoredProcedureParameter(0, Integer.class, ParameterMode.IN)
+                    .registerStoredProcedureParameter(1, String.class, ParameterMode.IN)
+                    .registerStoredProcedureParameter(2, String.class, ParameterMode.IN)
+                    .registerStoredProcedureParameter(3, Parameter.class, ParameterMode.REF_CURSOR);
 
             storedProcedureQuery.setParameter(0, parameterGroupNumber);
             storedProcedureQuery.setParameter(1, userApplicationRelationName);
             storedProcedureQuery.setParameter(2, recordUserNumber);
+
+            storedProcedureQuery.execute();
             resultList = storedProcedureQuery.getResultList();
 
             if(CollectionUtils.isEmpty(resultList)) {

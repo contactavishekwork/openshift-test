@@ -32,9 +32,9 @@ import java.util.Date;
                 procedureName = "pkg_get_set_parmas_ms.prc_get_params_by_role",
                 resultClasses = {Parameter.class},
                 parameters = {
-                        @StoredProcedureParameter(name = "parameterGroupNumber", type = Integer.class, mode = ParameterMode.OUT),
-                        @StoredProcedureParameter(name = "userApplicationRelationName", type = String.class, mode = ParameterMode.OUT),
-                        @StoredProcedureParameter(name = "recordUserNumber", type = String.class, mode = ParameterMode.OUT)
+                        @StoredProcedureParameter(name = "parameterGroupNumber", type = Integer.class, mode = ParameterMode.IN),
+                        @StoredProcedureParameter(name = "userApplicationRelationName", type = String.class, mode = ParameterMode.IN),
+                        @StoredProcedureParameter(name = "recordUserNumber", type = String.class, mode = ParameterMode.IN),
                 }),
         @NamedStoredProcedureQuery(
                 name = "GetParametersByName",

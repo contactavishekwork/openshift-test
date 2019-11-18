@@ -9,4 +9,5 @@ public interface ParameterService {
     ParameterResponse getAllParametersByUserRole(@NotNull int parameterGroupNumber, @NotNull String userApplicationRelationName, @NotNull String recordUserNumber) throws Exception;
 
     ParameterResponse getAllParametersByParameterName(@NotNull String parameterName) throws Exception;
+
 }
