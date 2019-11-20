@@ -19,31 +19,24 @@ public class ParameterGroup {
 
     @Id
     @NotNull
-    @Column(name = "prm_grp_num")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int parameterGroupNumber;
-
     @Column(name = "prm_grp_cd")
-    private String parameterGroupCode;
+    private int parameterGroupCode;
 
-    @Column(name = "prm_grp_na")
+    @Column(name = "prm_grp_na", length = 50)
     private String parameterGroupName;
 
-    @Column(name = "rec_del_ind")
+    @Column(name = "lde_ir", length = 1)
     private int recordDeleteIndicator;
 
-    @Column(name = "created_date")
-    private Date createdDate;
+    @Column(name = "rec_crt_ts")
+    private Date recordCreateTimestamp;
 
-    /**
-     * TODO: To be decided by UPS
-     */
-    @Column(name = "created_by")
-    private String createdBy;
+    @Column(name = "rec_crt_usr_nr", length = 11)
+    private String recordCreateUserNumber;
 
-    @Column(name = "modified_date")
-    private Date modifiedDate;
+    @Column(name = "rec_udt_usr_nr", length = 11)
+    private String recordUpdateUserNumber;
 
-    @Column(name = "modified_by")
-    private String modifiedBy;
+    @Column(name = "rec_udt_ts")
+    private Date recordUpdateTimestamp;
 }

@@ -11,42 +11,32 @@ import java.util.Date;
 @Table(name = "TAPLUSRLPRM")
 public class UserRole {
 
-
     @Id
     @NotNull
-    @Column(name = "USR_APL_RL_NU")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int userApplicationRoleNumber;
+    @Column(name = "usr_apl_rl_cd")
+    private int userApplicationRoleCode;
 
     @NotNull
-    @Column(name = "REC_UDT_USR_NA", length = 50)
-    private String recordUsername;
+    @Column(name = "prm_grp_cd")
+    private int parameterGroupCode;
 
     @NotNull
-    @Column(name = "REC_UDT_USR_NR", length = 11)
-    private String recordUserNumber;
+    @Column(name = "lde_ir", length = 1)
+    private char recordDeleteIndicator;
 
     @NotNull
-    @Column(name = "USR_APL_RL_NA", length = 50)
-    private String userApplicationRelationName;
+    @Column(name = "rec_crt_ts")
+    private Date recordCreatedTimestamp;
 
     @NotNull
-    @Column(name = "PRM_GRP_NUM")
-    private int parameterGroupNumber;
+    @Column(name = "rec_crt_usr_nr", length = 11)
+    private String recordCreateUserNumber;
 
     @NotNull
-    @Column(name = "REC_DEL_IND")
-    private int recordDeleteIndicator;
+    @Column(name = "rec_udt_user_nr", length = 11)
+    private String recordUpdateUserNumber;
 
-    @Column(name = "created_date")
-    private Date createdDate;
+    @Column(name = "rec_udt_ts")
+    private Date recordUpdateTimestamp;
 
-    @Column(name = "created_by")
-    private String createdBy;
-
-    @Column(name = "modified_date")
-    private Date modifiedDate;
-
-    @Column(name = "modified_by")
-    private String modifiedBy;
 }

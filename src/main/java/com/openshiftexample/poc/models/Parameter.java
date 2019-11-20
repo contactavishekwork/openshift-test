@@ -31,36 +31,39 @@ public class Parameter {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long parameterSystemNumber;
 
-    @Column(name = "prm_typ_num")
+    @Column(name = "prm_typ_cd", length = 3)
     private int parameterTypeNumber;
 
-    @Column(name = "prm_na")
+    @Column(name = "prm_na", length = 100)
     private String parameterName;
 
-    @Column(name = "prm_vlu_te")
+    @Column(name = "prm_vlu_te", length = 4000)
     private String parameterValue;
 
-    @Column(name = "rec_eff_stt_ts")
-    private Date recordEffectiveStateTime;
-
-    @Column(name = "prm_dsc_te")
+    @Column(name = "prm_dsc_te", length = 200)
     private String parameterDescription;
 
-    @Column(name = "prm_grp_num")
+    @Column(name = "prm_grp_cd")
     private int parameterGroupNumber;
 
-    @Column(name = "rec_del_ind")
-    private int recordDeleteIndicator;
+    @Column(name = "lde_ir", length = 1)
+    private char recordDeleteIndicator;
 
-    @Column(name = "created_date")
-    private Date createdDate;
+    @Column(name = "rec_eff_stt_ts")
+    private Date recordEffectiveStartTimeStamp;
 
-    @Column(name = "created_by")
-    private String createdBy;
+    @Column(name = "rec_crt_ts")
+    private Date recordCreatedTimeStamp;
 
-    @Column(name = "modified_date")
-    private Date modifiedDate;
+    @Column(name = "rec_crt_usr_nr", length = 11)
+    private String recordCreatedUserNumber;
 
-    @Column(name = "modified_by")
-    private String modifiedBy;
+    @Column(name = "rec_udt_usr_na", length = 50)
+    private String recordUpdateUserName;
+
+    @Column(name = "rec_udt_usr_nr", length = 11)
+    private String recordUpdateUserNumber;
+
+    @Column(name = "rec_udt_ts")
+    private Date recordUpdateTimestamp;
 }

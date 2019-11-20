@@ -28,24 +28,24 @@ public class ParameterType {
     @NotNull
     @Column(name = "prm_typ_cd")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int parameterTypeNumber;
+    private String parameterTypeCode;
 
     @Column(name = "prm_typ_cd_dsc_te")
     private String parameterTypeCodeDescription;
 
-    @Column(name = "rec_del_ind")
+    @Column(name = "lde_id")
     private int recordDeleteIndicator;
 
-    @Column(name = "created_date")
-    private Date createdDate;
+    @Column(name = "rec_crt_ts")
+    private Date recordCreateTimestamp;
 
-    @Column(name = "created_by")
-    private String createdBy;
+    @Column(name = "rec_crt_usr_nr")
+    private String recordCreateUserNumber;
 
-    @Column(name = "modified_date")
-    private Date modifiedDate;
+    @Column(name = "rec_udt_usr_nr")
+    private String recordUpdateUserNumber;
 
-    @Column(name = "modified_by")
-    private String modifiedBy;
+    @Column(name = "rec_udt_ts")
+    private Date recordUpdateTimestamp;
 
 }
