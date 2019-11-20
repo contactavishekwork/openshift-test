@@ -1,11 +1,10 @@
 package com.openshiftexample.poc.daos;
 
-import com.openshiftexample.poc.models.Parameter;
+import com.openshiftexample.poc.models.ParameterGroup;
 import org.springframework.data.repository.CrudRepository;
 
 import org.springframework.stereotype.Repository;
 
-
 @Repository
-public interface ParameterDAO extends CrudRepository<Parameter, String>, ParameterDAOCustom {
+public interface ParameterGroupDAO extends CrudRepository<ParameterGroup, String>, ParameterGroupDAOCustom {
 }

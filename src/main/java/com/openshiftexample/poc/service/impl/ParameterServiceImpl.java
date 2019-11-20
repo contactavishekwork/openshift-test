@@ -40,7 +40,7 @@ public class ParameterServiceImpl implements ParameterService {
         @SuppressWarnings("unchecked")
         ArrayList<Parameter> parameterList = (ArrayList<Parameter>) parameterDAO.getAllParametersByUserRole(parameterGroupNumber, userApplicationRelationName, recordUserNumber);
 
-        if(CollectionUtils.isNotEmpty(parameterList)) {
+        if(CollectionUtils.isEmpty(parameterList)) {
             log.error("No Parameters found with Parameter System Number: " + parameterGroupNumber);
             return null;
         }
